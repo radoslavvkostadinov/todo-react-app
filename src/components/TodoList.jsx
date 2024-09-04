@@ -33,6 +33,10 @@ export default function TodoList() {
 
     const [tasks, setTasks] = useState(todos);
     const deleteTask = (id) => setTasks(tasks.filter((task) => task.id !== id));
+    const toggleCompleted = (id) => setTasks(tasks.map((task) => task.id === id
+        ? { ...task, completed: !task.completed }
+        : task));
+
     return (
         <div className="todo-list-container">
             {tasks.map((task) => (
@@ -40,6 +44,7 @@ export default function TodoList() {
                     key={task.id}
                     task={task}
                     deleteTask={deleteTask}
+                    toggleCompleted={toggleCompleted}
                 />
             ))}
         </div>
