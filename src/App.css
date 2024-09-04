@@ -11,9 +11,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -22,6 +24,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -42,12 +45,12 @@
 }
 
 .todo-list-item {
-  width: 350px;
+  width: 370px;
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   align-items: center;
-  background-color:bisque;
-  color:dimgray;
+  background-color: bisque;
+  color: dimgray;
   border-radius: 5px;
   padding: 15px;
   margin: 10px;
@@ -84,11 +87,11 @@
   transition: .2s linear;
 }
 
-.btn:hover > .icon {
+.btn:hover>.icon {
   transform: scale(1.5);
 }
 
-.btn:hover > .icon path {
+.btn:hover>.icon path {
   fill: rgb(168, 7, 7);
 }
 
@@ -122,14 +125,13 @@
   stroke-dashoffset: 0;
 }
 
-.container input:checked ~ svg .path {
+.container input:checked~svg .path {
   stroke-dasharray: 70.5096664428711 9999999;
   stroke-dashoffset: -262.2723388671875;
 }
 
 
 /* Edit button */
-
 .edit-button {
   width: 40px;
   height: 40px;
@@ -152,4 +154,35 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* Task done decoration */
+.task-done {
+  text-decoration: line-through;
+}
+
+.add-btn {
+  margin-right: 295px;
+  margin-bottom: 10px;
+}
+
+.create-todo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 440px;
+  background-color: bisque;
+  width: 400px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.create-todo label {
+  margin: 5px;
+  color: rgb(46, 45, 45);
+}
+
+.create-btn {
+  width: 100px;
+  margin: 5px;
 }

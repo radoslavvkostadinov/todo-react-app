@@ -16,7 +16,7 @@ export default function TodoListItem({ task, deleteTask, toggleCompleted }) {
             </label>
             <div>
                 <div className="text-date">
-                    <span>{task.text}</span><br />
+                    <span className={task.completed ? 'task-done' : ''}>{task.text}</span><br />
                     <span>{task.dueDate}</span>
                 </div>
             </div>
