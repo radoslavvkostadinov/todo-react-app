@@ -19,7 +19,7 @@ export default function TodoListItem({ task, deleteTask, toggleCompleted }) {
             <div>
                 <div className="text-date">
                     <span>{task.text}</span><br />
-                    <span>{task.date}</span>
+                    <span>{task.dueDate}</span>
                 </div>
             </div>
             <div>

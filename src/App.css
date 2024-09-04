@@ -50,6 +50,7 @@
   color:dimgray;
   border-radius: 5px;
   padding: 15px;
+  margin: 10px;
 }
 
 /* Delete button */
@@ -147,3 +148,8 @@
   width: 20px;
 }
 
+.todo-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
