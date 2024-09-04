@@ -10,6 +10,7 @@ export default function TodoList() {
         ? { ...task, completed: !task.completed }
         : task));
 
+        
     const newTodo =
     {
         id: 5,
