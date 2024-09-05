@@ -1,11 +1,11 @@
 import { useState } from "react"
 
-export default function CreateTodo({ addTodo, onNewTaskName, onTaskDate, taskName, date }) {
+export default function CreateTodo({ addTodo, onTaskName, onTaskDate, taskName, date }) {
     const [showInput, setShowInput] = useState(false);
     const handleClick = () => setShowInput(!showInput);
 
     function handleTodoName(e) {
-        onNewTaskName(e.target.value)
+        onTaskName(e.target.value)
     }
 
     function handleTodoDate(e) {

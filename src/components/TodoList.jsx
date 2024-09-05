@@ -2,6 +2,7 @@ import { useState } from "react";
 import TodoListItem from "./TodoListItem"
 import { idIncrementer, todos } from "../data/todos";
 import CreateTodo from "./CreateTodo";
+import { toast } from "react-toastify";
 export default function TodoList() {
 
     const [tasks, setTasks] = useState(todos);
@@ -21,6 +22,16 @@ export default function TodoList() {
     }
 
     const addNewTask = () => {
+
+        if (!newTodo.text) {
+            toast.error('Empty task cannot be added.');
+            return
+        }
+
+             if (!newTodo.dueDate) {
+            toast.error('Please select a due date.');
+            return;
+        }
 
         const [year, month, rest] = newTodo.dueDate.split('-');
         const [day, time] = rest.split('T');
@@ -42,7 +53,7 @@ export default function TodoList() {
         <>
             <CreateTodo
                 addTodo={addNewTask}
-                onNewTaskName={setNewTaskName}
+                onTaskName={setNewTaskName}
                 onTaskDate={setNewTaskDate}
                 taskName={newTaskName}
                 date={newTaskDate}
