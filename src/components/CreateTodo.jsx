@@ -1,13 +1,17 @@
 import { useState } from "react"
-import { todos } from "../data/todos";
 
-export default function CreateTodo({ todo, addTodo }) {
+export default function CreateTodo({ addTodo, onNewTaskName, onTaskDate, taskName, date }) {
     const [showInput, setShowInput] = useState(false);
     const handleClick = () => setShowInput(!showInput);
 
-    function addNewTodo() {
-        addTodo(todo.id)
+    function handleTodoName(e) {
+        onNewTaskName(e.target.value)
     }
+
+    function handleTodoDate(e) {
+        onTaskDate(e.target.value)
+    }
+
     return (
         <>
             <button
@@ -17,18 +21,25 @@ export default function CreateTodo({ todo, addTodo }) {
             {showInput && (
                 <div className="create-todo">
                     <label>
-                        Task name: <input
+                        Task name:
+                        <input
                             type="text"
+                            value={taskName}
+                            onChange={handleTodoName}
                         />
                     </label>
                     <label>
                         Due date: <input
+                            id="a"
                             type="datetime-local"
-                            name="myCheckbox" />
+                            value={date}
+                            onChange={handleTodoDate}
+                            name="myCheckbox"
+                        />
                     </label>
                     <button
                         className="create-btn"
-                        onClick={() => addNewTodo()}
+                        onClick={addTodo}
                     >Create</button>
                 </div>
             )}

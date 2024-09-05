@@ -1,41 +1,51 @@
 import { useState } from "react";
 import TodoListItem from "./TodoListItem"
-import { todos } from "../data/todos";
+import { idIncrementer, todos } from "../data/todos";
 import CreateTodo from "./CreateTodo";
 export default function TodoList() {
 
     const [tasks, setTasks] = useState(todos);
+    const [newTaskName, setNewTaskName] = useState('');
+    const [newTaskDate, setNewTaskDate] = useState('');
     const deleteTask = (id) => setTasks(tasks.filter((task) => task.id !== id));
     const toggleCompleted = (id) => setTasks(tasks.map((task) => task.id === id
         ? { ...task, completed: !task.completed }
         : task));
 
-        
     const newTodo =
     {
-        id: 5,
-        text: 'Bubu',
+        id: idIncrementer(),
+        text: newTaskName,
         completed: false,
-        dueDate: '5:23 AM, 01/06/2022'
+        dueDate: newTaskDate
     }
 
     const addNewTask = () => {
+
+        const [year, month, rest] = newTodo.dueDate.split('-');
+        const [day, time] = rest.split('T');
+        let completeDate = `${time}, ${month}/${day}/${year}`;
 
         const newTask = {
             id: newTodo.id,
             text: newTodo.text,
             completed: false,
-            dueDate: newTodo.dueDate
+            dueDate: completeDate
         };
-    
+
         setTasks([...tasks, newTask]);
+        setNewTaskName('');
+        setNewTaskDate('');
     };
 
     return (
         <>
             <CreateTodo
-                todo={newTodo}
                 addTodo={addNewTask}
+                onNewTaskName={setNewTaskName}
+                onTaskDate={setNewTaskDate}
+                taskName={newTaskName}
+                date={newTaskDate}
             />
             <div className="todo-list-container">
                 {tasks.map((task) => (
