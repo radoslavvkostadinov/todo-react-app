@@ -1,6 +1,7 @@
 import { useState } from "react"
 
 export default function CreateTodo({ addTodo, onTaskName, onTaskDate, taskName, date }) {
+    
     const [showInput, setShowInput] = useState(false);
     const handleClick = () => setShowInput(!showInput);
 

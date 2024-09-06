@@ -3,15 +3,20 @@ import TodoListItem from "./TodoListItem"
 import { idIncrementer, todos } from "../data/todos";
 import CreateTodo from "./CreateTodo";
 import { toast } from "react-toastify";
+import EditTodo from "./EditTodo";
 export default function TodoList() {
+
 
     const [tasks, setTasks] = useState(todos);
     const [newTaskName, setNewTaskName] = useState('');
     const [newTaskDate, setNewTaskDate] = useState('');
+    const [showEdit, setShowEdit] = useState(false);
+    const [edit, setEdit] = useState(null);
     const deleteTask = (id) => setTasks(tasks.filter((task) => task.id !== id));
     const toggleCompleted = (id) => setTasks(tasks.map((task) => task.id === id
         ? { ...task, completed: !task.completed }
         : task));
+    const editTask = (id) => setEdit(tasks.find((task) => task.id === id));
 
     const newTodo =
     {
@@ -28,7 +33,7 @@ export default function TodoList() {
             return
         }
 
-             if (!newTodo.dueDate) {
+        if (!newTodo.dueDate) {
             toast.error('Please select a due date.');
             return;
         }
@@ -49,22 +54,55 @@ export default function TodoList() {
         setNewTaskDate('');
     };
 
+
+
+    // const editingTask = (id) => {
+
+    //     const editTask = (id) => setEdit(tasks.filter((task) => task.id === id));
+    //     editTask(id);
+
+    //     const myTask = edit[0];
+    //     const task = {
+    //         id: myTask.id,
+    //         text: myTask.text,
+    //         completed: myTask.completed,
+    //         dueDate: myTask.dueDate
+    //     }
+
+    //     setTasks([...tasks, task]);
+    //     setEdit('');
+    //     setNewTaskName('');
+    //     setNewTaskDate('');
+
+    // }
+
+
+    const updateTask = (updatedTask) => {
+        setTasks(tasks.map((task) => task.id === updatedTask.id ? updatedTask : task));
+        setEdit(null);
+    };
     return (
         <>
-            <CreateTodo
-                addTodo={addNewTask}
-                onTaskName={setNewTaskName}
-                onTaskDate={setNewTaskDate}
-                taskName={newTaskName}
-                date={newTaskDate}
-            />
             <div className="todo-list-container">
+                <CreateTodo
+                    addTodo={addNewTask}
+                    onTaskName={setNewTaskName}
+                    onTaskDate={setNewTaskDate}
+                    taskName={newTaskName}
+                    date={newTaskDate}
+                />
+                {edit && (<EditTodo
+                    task={edit}
+                    updateTask={updateTask}
+                    cancelEdit={() => setEdit(null)}
+                />)}
                 {tasks.map((task) => (
                     <TodoListItem
                         key={task.id}
                         task={task}
                         deleteTask={deleteTask}
                         toggleCompleted={toggleCompleted}
+                        editTask={editTask}
                     />
                 ))}
             </div>

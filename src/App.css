@@ -169,12 +169,13 @@
 .create-todo {
   display: flex;
   flex-direction: column;
-  margin-left: 440px;
   background-color: bisque;
   width: 400px;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .create-todo label {
@@ -186,3 +187,29 @@
   width: 100px;
   margin: 5px;
 }
+
+.edit-todo {
+  display: flex;
+  flex-direction: column;
+  /* margin-left: 440px; */
+  background-color: bisque;
+  width: 400px;
+  height: 130px;
+  justify-content: center;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.edit-todo label {
+  margin: 5px;
+  color: rgb(46, 45, 45);
+}
+
+
+.save-cancel-btn{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5px
+};
+
