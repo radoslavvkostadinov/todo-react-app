@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { toast } from "react-toastify";
+import PropTypes from 'prop-types';
 
 export default function EditTodo({ task, updateTask, cancelEdit }) {
 
@@ -68,3 +69,9 @@ export default function EditTodo({ task, updateTask, cancelEdit }) {
     )
 
 }
+
+EditTodo.propTypes = {
+    task: PropTypes.object,
+    updateTask: PropTypes.func,
+    cancelEdit: PropTypes.func,
+};

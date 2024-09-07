@@ -1,7 +1,8 @@
 import { useState } from "react"
+import PropTypes from 'prop-types';
 
 export default function CreateTodo({ addTodo, onTaskName, onTaskDate, taskName, date }) {
-    
+
     const [showInput, setShowInput] = useState(false);
     const handleClick = () => setShowInput(!showInput);
 
@@ -34,7 +35,7 @@ export default function CreateTodo({ addTodo, onTaskName, onTaskDate, taskName, 
                     <label>
                         Due date:
                         <span>{' '}</span>
-                         <input
+                        <input
                             className="date-input"
                             type="datetime-local"
                             value={date}
@@ -52,3 +53,12 @@ export default function CreateTodo({ addTodo, onTaskName, onTaskDate, taskName, 
     )
 
 }
+
+CreateTodo.propTypes = {
+    taskName: PropTypes.string,
+    onTaskName: PropTypes.func,
+    addTodo: PropTypes.func,
+    taskDate: PropTypes.string,
+    onTaskDate: PropTypes.func,
+    date: PropTypes.string
+};

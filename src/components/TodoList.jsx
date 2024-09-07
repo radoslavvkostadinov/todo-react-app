@@ -4,6 +4,7 @@ import { idIncrementer, todos } from "../data/todos";
 import CreateTodo from "./CreateTodo";
 import { toast } from "react-toastify";
 import EditTodo from "./EditTodo";
+import sponge from '../images/sponge-bob.gif';
 export default function TodoList() {
 
 
@@ -85,7 +86,11 @@ export default function TodoList() {
                                 editTask={editTask}
                             />
                         ))}
-                    </div>) : ('lalala')
+                    </div>) : (
+                        <div className="image-container">
+                            <img src={sponge} />
+                        </div>
+                    )
             }
 
         </div >

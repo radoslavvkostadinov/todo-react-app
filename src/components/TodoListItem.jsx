@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 export default function TodoListItem({ task, deleteTask, editTask, toggleCompleted }) {
-
 
     return (
         <div className="todo-list-item">
@@ -36,3 +36,10 @@ export default function TodoListItem({ task, deleteTask, editTask, toggleComplet
         </div>
     )
 }
+
+TodoListItem.propTypes = {
+    task: PropTypes.object,
+    deleteTask: PropTypes.func,
+    editTask: PropTypes.func,
+    toggleCompleted: PropTypes.func,
+};

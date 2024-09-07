@@ -240,3 +240,10 @@
   background-image: url('/src/images/dark-wallpaper.jpg');
   border-radius: 5px;
 }
+
+
+.image-container {
+  width: 500px;
+  height: 100px;
+  padding-bottom: 200px;
+}
