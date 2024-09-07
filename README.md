@@ -5,6 +5,7 @@
 
 ## If you want to try it you just need to follow three simple steps simple steps:
 1. Clone the repository ===> ```git clone <repository-url> ```
-2. Install the dependencies ===> ```npm i ```
-3. Start the development server  ===> ```npm run dev```
-4. Enjoy the simplicity and beauty of the app!
+2. Go to the proper directory ===> ```cd todo-react-app```
+3. Install the dependencies ===> ```npm i ```
+4. Start the development server  ===> ```npm run dev```
+5. Enjoy the simplicity and beauty of the app!
