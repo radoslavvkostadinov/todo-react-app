@@ -19,15 +19,18 @@ export default function EditTodo({ task, updateTask, cancelEdit }) {
             toast.error('Empty task cannot be saved.');
             return;
         }
-        if (!taskDate) {
-            toast.error('Please select a due date.');
-            return;
-        }
 
         const [year, month, rest] = taskDate.split('-');
+
+        if (!rest) {
+            toast.error('Please select a due date.');
+            return;
+
+        }
+
         const [day, time] = rest.split('T');
         let completeDate = `${time}, ${month}/${day}/${year}`;
-        
+
         const updatedTask = {
             ...task,
             text: taskName,
@@ -41,6 +44,7 @@ export default function EditTodo({ task, updateTask, cancelEdit }) {
         <div className="edit-todo">
             <label>
                 Task name:
+                <span>{' '}</span>
                 <input
                     type="text"
                     value={taskName}
@@ -49,6 +53,7 @@ export default function EditTodo({ task, updateTask, cancelEdit }) {
             </label>
             <label>
                 Due date:
+                <span>{' '}</span>
                 <input
                     type="datetime-local"
                     value={taskDate}

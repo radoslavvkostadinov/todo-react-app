@@ -23,15 +23,19 @@ export default function CreateTodo({ addTodo, onTaskName, onTaskDate, taskName, 
                 <div className="create-todo">
                     <label>
                         Task name:
+                        <span>{' '}</span>
                         <input
+                            className="name-input"
                             type="text"
                             value={taskName}
                             onChange={handleTodoName}
                         />
                     </label>
                     <label>
-                        Due date: <input
-                            id="a"
+                        Due date:
+                        <span>{' '}</span>
+                         <input
+                            className="date-input"
                             type="datetime-local"
                             value={date}
                             onChange={handleTodoDate}

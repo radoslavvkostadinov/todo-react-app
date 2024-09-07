@@ -154,6 +154,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 570px;
+  max-height: 800px;
+  overflow-y: auto;
 }
 
 /* Task done decoration */
@@ -162,8 +165,10 @@
 }
 
 .add-btn {
-  margin-right: 295px;
+  margin-right: 325px;
+  margin-top: 10px;
   margin-bottom: 10px;
+  background-image: url('/src/images/dark-wallpaper.jpg');
 }
 
 .create-todo {
@@ -186,6 +191,8 @@
 .create-btn {
   width: 100px;
   margin: 5px;
+  background-image: url('/src/images/dark-wallpaper.jpg');
+  border-radius: 5px;
 }
 
 .edit-todo {
@@ -194,7 +201,7 @@
   /* margin-left: 440px; */
   background-color: bisque;
   width: 400px;
-  height: 130px;
+  height: 140px;
   justify-content: center;
   border-radius: 5px;
   margin-top: 5px;
@@ -206,10 +213,30 @@
   color: rgb(46, 45, 45);
 }
 
-
-.save-cancel-btn{
+.save-cancel-btn {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 5px
-};
+  margin-bottom: 5px;
+}
 
+
+.name-input {
+  margin-left: 10px;
+}
+
+.whole-todo {
+  background-color: aliceblue;
+  width: 500px;
+  border-radius: 5px;
+  background-image: url('/src/images/dark-wallpaper.jpg');
+}
+
+.save-btn {
+  background-image: url('/src/images/dark-wallpaper.jpg');
+  border-radius: 5px;
+}
+
+.cancel-btn {
+  background-image: url('/src/images/dark-wallpaper.jpg');
+  border-radius: 5px;
+}

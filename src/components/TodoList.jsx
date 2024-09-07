@@ -59,30 +59,35 @@ export default function TodoList() {
         setEdit(null);
     };
     return (
-        <>
-            <div className="todo-list-container">
-                <CreateTodo
-                    addTodo={addNewTask}
-                    onTaskName={setNewTaskName}
-                    onTaskDate={setNewTaskDate}
-                    taskName={newTaskName}
-                    date={newTaskDate}
-                />
-                {edit && (<EditTodo
-                    task={edit}
-                    updateTask={updateTask}
-                    cancelEdit={() => setEdit(null)}
-                />)}
-                {tasks.map((task) => (
-                    <TodoListItem
-                        key={task.id}
-                        task={task}
-                        deleteTask={deleteTask}
-                        toggleCompleted={toggleCompleted}
-                        editTask={editTask}
-                    />
-                ))}
-            </div>
-        </>
+
+        <div className="whole-todo">
+            {
+                tasks.length > 0 ?
+                    (<div className="todo-list-container">
+                        <CreateTodo
+                            addTodo={addNewTask}
+                            onTaskName={setNewTaskName}
+                            onTaskDate={setNewTaskDate}
+                            taskName={newTaskName}
+                            date={newTaskDate}
+                        />
+                        {edit && (<EditTodo
+                            task={edit}
+                            updateTask={updateTask}
+                            cancelEdit={() => setEdit(null)}
+                        />)}
+                        {tasks.map((task) => (
+                            <TodoListItem
+                                key={task.id}
+                                task={task}
+                                deleteTask={deleteTask}
+                                toggleCompleted={toggleCompleted}
+                                editTask={editTask}
+                            />
+                        ))}
+                    </div>) : ('lalala')
+            }
+
+        </div >
     )
 }

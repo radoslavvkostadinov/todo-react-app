@@ -12,7 +12,7 @@ export const todos = [
         id: idIncrementer(),
         text: 'Meeting at School',
         completed: false,
-        dueDate: '6:00, 02/06/2022'
+        dueDate: '06:00, 02/06/2022'
     },
     {
         id: idIncrementer(),
@@ -24,7 +24,13 @@ export const todos = [
         id: idIncrementer(),
         text: 'Create a Todo App',
         completed: false,
-        dueDate: '4:23, 11/06/2022'
+        dueDate: '14:23, 11/06/2022'
+    },
+    {
+        id: idIncrementer(),
+        text: 'Coding :)',
+        completed: false,
+        dueDate: 'while (true)'
     },
 
 ]
