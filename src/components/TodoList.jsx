@@ -10,7 +10,6 @@ export default function TodoList() {
     const [tasks, setTasks] = useState(todos);
     const [newTaskName, setNewTaskName] = useState('');
     const [newTaskDate, setNewTaskDate] = useState('');
-    const [showEdit, setShowEdit] = useState(false);
     const [edit, setEdit] = useState(null);
     const deleteTask = (id) => setTasks(tasks.filter((task) => task.id !== id));
     const toggleCompleted = (id) => setTasks(tasks.map((task) => task.id === id
@@ -53,28 +52,6 @@ export default function TodoList() {
         setNewTaskName('');
         setNewTaskDate('');
     };
-
-
-
-    // const editingTask = (id) => {
-
-    //     const editTask = (id) => setEdit(tasks.filter((task) => task.id === id));
-    //     editTask(id);
-
-    //     const myTask = edit[0];
-    //     const task = {
-    //         id: myTask.id,
-    //         text: myTask.text,
-    //         completed: myTask.completed,
-    //         dueDate: myTask.dueDate
-    //     }
-
-    //     setTasks([...tasks, task]);
-    //     setEdit('');
-    //     setNewTaskName('');
-    //     setNewTaskDate('');
-
-    // }
 
 
     const updateTask = (updatedTask) => {

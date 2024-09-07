@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { toast } from "react-toastify";
 
 export default function EditTodo({ task, updateTask, cancelEdit }) {
 
@@ -13,10 +14,24 @@ export default function EditTodo({ task, updateTask, cancelEdit }) {
 
 
     const handleSave = () => {
+
+        if (!taskName) {
+            toast.error('Empty task cannot be saved.');
+            return;
+        }
+        if (!taskDate) {
+            toast.error('Please select a due date.');
+            return;
+        }
+
+        const [year, month, rest] = taskDate.split('-');
+        const [day, time] = rest.split('T');
+        let completeDate = `${time}, ${month}/${day}/${year}`;
+        
         const updatedTask = {
             ...task,
             text: taskName,
-            dueDate: taskDate
+            dueDate: completeDate
         };
 
         updateTask(updatedTask);
